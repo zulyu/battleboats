@@ -195,6 +195,12 @@ def main():
             print("Game Over!")
             if result == "win":
                 print("Congrats you won!")
+            else:
+                print("Sorry, you lost! You ran out of bullets, try again next time!")
+            print("Number of ships sunk:", num_ships_s)
+            accuracy = calculate_accuracy_percentage(num_ships, num_ships_s)
+            print(f"Accuracy Percentage: {accuracy:.2f}%")
+            game_over = True
 
 if __name__ == "__main__":
     main()
