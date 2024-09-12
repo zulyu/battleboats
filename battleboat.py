@@ -195,6 +195,38 @@ def main():
             print("Game Over!")
             if result == "win":
                 print("Congrats you won!")
+            def main():
+    """
+    Main function to start the game.
+    """
+    print("-----Welcome to Battleships-----")
+    print("You have 50 bullets to take down 8 ships, may the battle begin!")
+
+    grid_size = 10
+    num_ships = 2
+    bullets_l = 50
+    num_ships_s = 0
+
+    grid = create_grid(grid_size, num_ships)
+
+    game_over = False
+    while not game_over:
+        print_grid(grid)
+        print("Number of ships remaining:", num_ships - num_ships_s)
+        print("Number of bullets left:", bullets_l)
+        bullets_l = shoot_bullet(grid, bullets_l)
+
+        result, num_ships_s, bullets_l = check_for_game_over(num_ships_s, num_ships, bullets_l)
+        if result:
+            print("Game Over!")
+            if result == "win":
+                print("Congrats you won!")
+            else:
+                print("Sorry, you lost! You ran out of bullets, try again next time!")
+            print("Number of ships sunk:", num_ships_s)
+            accuracy = calculate_accuracy_percentage(num_ships, num_ships_s)
+            print(f"Accuracy Percentage: {accuracy:.2f}%")
+            game_over = True
 
 if __name__ == "__main__":
     main()
